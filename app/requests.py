@@ -1,8 +1,9 @@
 from app import app
 import urllib.request,json
 from app.models import news_articles, news_source
+import requests
 
-News = news_articles
+News = news_articles.News_Articles
 
 api_key = app.config['NEWS_API_KEY']
 base_url = app.config['NEWS_API_BASE_URL']
@@ -11,20 +12,19 @@ def get_news_articles():
     '''
     Function that gets the json response to our url request
     '''
-    get_news_url = base_url.format(api_key)
+    # get_news_url = base_url.format(api_key)
+    news_results = requests.get('https://newsapi.org/v2/top-headlines?country=za&apiKey=1b7e8d876a1d4b6d81cd805f238083f8').json()
+    
+    articles =[]
+    for item in news_results['articles']:
+        title = item['title']
+        content = item['content']
+        image = item['urlToImage']
+        publishedAt = item['publishedAt']
 
-    with urllib.request.urlopen(get_news_url) as url:
-        get_news_data = url.read()
-        get_news_response = json.loads(get_news_data)
-
-        news_results = None
-
-        if get_news_response['articles']:
-            news_results_list = get_news_response['articles']
-            news_results = process_results(news_results_list)
-
-
-    return news_results
+        news_object = News(title,content,image,publishedAt)
+        articles.append(news_object)
+    return articles
 
 def process_results(news_results_list):
     news_results = []
@@ -34,8 +34,8 @@ def process_results(news_results_list):
         image = news_item.get('image_path')
         publishedAt = news_item.get('publishedAt')
 
-        if image:
-            news_object = News(title,content,image, publishedAt)
-            news_results.append(news_object)
+    if image:
+        news_object = News(title,content,image,publishedAt)
+        news_results.append(news_object)
 
     return news_results
