@@ -10,10 +10,10 @@ def index():
     '''
     return render_template('index.html')
 
-# @app.route('/aboutus')
-# def aboutus():
+@app.route('/contactus')
+def contactus():
 
-#     '''
-#     View movie page function that returns the movie details page and its data
-#     '''
-#     return render_template('movie.html',id = movie_id)
+    '''
+    View movie page function that returns the movie details page and its data
+    '''
+    return render_template('contactus.html')
