@@ -1,25 +1,21 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'base.html'%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
 
 <body>
-    <h1>WELCOME TO THE NEWS SOURCES SECTION</h1>
-    <P>Feel free to check out our news sources below</P>
-    <ul>
-        {%for article in sources %}
-        <h2>{{article.url}}</h2>
-        <h2>{{article.name}}</h2>
-        <h2>{{article.id}}</h2>
-        <h2>{{article.description}}</h2>
-        {%endfor%}
-    </ul>
-
+    {%block content%}
+    <h1 id="sourcetitle">WELCOME TO THE NEWS SOURCES SECTION</h1>
+    <P id="sourcetitledesc">Feel free to check out our news sources below</P>
+    <div class="container">
+        <div class="card card-body">
+            <ul>
+                {%for article in sources %}
+                <h2>{{article.url}}</h2>
+                <h2>{{article.name}}</h2>
+                <h2>{{article.id}}</h2>
+                <h2>{{article.description}}</h2>
+                {%endfor%}
+            </ul>
+        </div>
+    </div>
+    {%endblock%}
 </body>
-
-</html>
