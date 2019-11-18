@@ -34,3 +34,7 @@ body{
     background-color: slategrey;
 
 }
+
+.card-body{
+    background-color: black;
+}
