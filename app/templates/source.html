@@ -9,7 +9,8 @@
         <div class="card card-body">
             <ul>
                 {%for article in sources %}
-                <h2>{{article.url}}</h2>
+                <h2 id="articleurl" style="font-family: 'Share Tech Mono',
+     monospace;;">{{article.url}}</h2>
                 <h2>{{article.name}}</h2>
                 <h2>{{article.id}}</h2>
                 <h2>{{article.description}}</h2>
