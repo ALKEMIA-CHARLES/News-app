@@ -17,3 +17,20 @@
      font-family: 'Share Tech Mono',
      monospace
 }
+
+#articletitle{
+    color: sandybrown;
+    font-family: 'Share Tech Mono',
+    monospace;
+}
+
+#datepublished{
+    color: sandybrown;
+        font-family: 'Share Tech Mono',
+        monospace;
+}
+
+body{
+    background-color: slategrey;
+
+}

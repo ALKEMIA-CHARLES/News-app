@@ -1,7 +1,7 @@
 {%extends 'base.html'%}
 
 
-
+<body>
 {%block content%}
 <h1 id="headertitle">Welcome to News APP</h1>
 <div class="container">
@@ -9,11 +9,14 @@
     <h3 id="topheadlines"> Top Headlines </h3>
     <div class="card card-body">
         {% for article in top_headlines %}
-        <h3>{{ article.title}}</h3>
-        <h4>{{article.publishedAt}}</h4>
+        <h3 id="articletitle" style="font-family: 'Share Tech Mono',
+     monospace;">{{ article.title}}</h3>
+        <h4 id="datepublished" style="font-family:'Share Tech Mono',
+     monospace; ;">{{article.publishedAt[:10]}}</h4>
         <img src="{{article.image}}" alt="" class="img-fluid">
         {% endfor %}
     </div>
 </div>
 
 {%endblock%}
+</body>
