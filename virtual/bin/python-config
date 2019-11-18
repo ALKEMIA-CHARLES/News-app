@@ -1,4 +1,4 @@
-#!/home/charles/Documents/News-app/virtual/bin/python
+#!/home/charles/Documents/moringa-school-projects/News-app/virtual/bin/python
 
 import sys
 import getopt

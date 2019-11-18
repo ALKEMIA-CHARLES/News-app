@@ -1,25 +1,19 @@
-<!DOCTYPE html>
-<html lang="en">
+{%extends 'base.html'%}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>News app</title>
-</head>
 
-<body>
-    <h1>Welcome to News APP</h1>
 
-    <p>ALL of us here at News app are so excited to have you visit us</p>
+{%block content%}
+<h1 id="headertitle">Welcome to News APP</h1>
+<div class="container">
+    <p id="titledesc">ALL of us here at News app are so excited to have you visit us</p>
     <h3> Top Headlines </h3>
-    <ul>
+    <div class="card card-body">
         {% for article in top_headlines %}
         <h3>{{ article.title}}</h3>
         <h4>{{article.publishedAt}}</h4>
-        <img src="{{article.image}}" alt="">
+        <img src="{{article.image}}" alt="" class="img-fluid">
         {% endfor %}
-    </ul>
-</body>
+    </div>
+</div>
 
-</html>
+{%endblock%}
