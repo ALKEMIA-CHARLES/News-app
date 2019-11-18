@@ -1,9 +1,19 @@
 #headertitle{
     text-align: center;
-    color: blue !important;
+    color: sandybrown;
+    font-family: 'Share Tech Mono',
+    monospace;
 }
 
 #titledesc{
     text-align: center;
-    color: blue !important;
+    color:sandybrown ;
+    font-family: 'Share Tech Mono',
+    monospace;
+}
+
+#topheadlines{
+    color: sandybrown;
+     font-family: 'Share Tech Mono',
+     monospace
 }
