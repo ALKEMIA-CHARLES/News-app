@@ -31,8 +31,10 @@ This project was generated with python version 3
 
 # User interaction
 
-Open the link through browser. You will see homepage
-add source route on browser to vist sources page
+Open the link through browser. You will see homepage where you will find various news articles. I have also provided links to read the news articles on their sources
+add source route on browser to vist sources page where you will find a list of all the various sources news app gets it news from.
+
+Finally, there is a contact us route that has information on how anybody can contact the news-app team.
 
 # Known Bugs
 

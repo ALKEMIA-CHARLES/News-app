@@ -1,16 +1,14 @@
-from app import app
 import urllib.request,json
-from app.models import news_articles, news_source
+from .models import News_Articles, NewsSources
+from config import Config
 import requests
 
-News = news_articles.News_Articles
-NewsSources = news_source.NewsSources
+headlines_url = Config.NEWS_API_BASE_URL
+api_key = Config.NEWS_API_KEY
 
-api_key = app.config['NEWS_API_KEY']
-base_url = app.config['NEWS_API_BASE_URL']
 
 def get_news_articles():
-    news_results = requests.get('https://newsapi.org/v2/top-headlines?country=za&apiKey=1b7e8d876a1d4b6d81cd805f238083f8').json()
+    news_results = requests.get(headlines_url+api_key).json()
 
     articles =[]
     for item in news_results['articles']:
@@ -18,7 +16,8 @@ def get_news_articles():
         content = item['content']
         image = item['urlToImage']
         publishedAt = item['publishedAt']
-        news_object = News(title,content,image,publishedAt)
+        url = item['url']
+        news_object = News_Articles(title,content,image,publishedAt,url)
         articles.append(news_object)
     return articles
 
@@ -31,11 +30,10 @@ def process_results(news_results_list):
         publishedAt = news_item.get('publishedAt')
 
     if image:
-        news_object = News(title,content,image,publishedAt)
+        news_object = News_Articles(title,content,image,publishedAt)
         news_results.append(news_object)
 
     return news_results
-
 def get_news_by_source():
     source_results = requests.get('https://newsapi.org/v2/sources?apiKey=1b7e8d876a1d4b6d81cd805f238083f8').json()
 

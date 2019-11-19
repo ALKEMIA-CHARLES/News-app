@@ -1,7 +1,19 @@
-<h1>Contact information</h1>
+{%extends 'base.html' %}
 
-<ul>
-    <li>newsapp@gmail.com</li>
-    <li>newsapp@hotmail.com</li>
-    <li>enquiries@newsapp.com</li>
-</ul>
+{%block content%}
+<div class="container">
+    <div class="card card-body">
+        <h1 id="contactheader" style="font-family: 'Share Tech Mono',
+     monospace;">Contact information</h1>
+
+        <ul>
+            <li id="gmail" style="font-family:'Share Tech Mono',
+     monospace ;">newsapp@gmail.com</li>
+            <li id="hotmail" style="font-family: 'Share Tech Mono',
+     monospace;">newsapp@hotmail.com</li>
+            <li id="newsapp" style="font-family:'Share Tech Mono',
+     monospace ;">enquiries@newsapp.com</li>
+        </ul>
+    </div>
+</div>
+{%endblock%}
